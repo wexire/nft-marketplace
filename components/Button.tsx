@@ -6,7 +6,7 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import React from "react";
-import { COLORS, SHADOWS, SIZES } from "../constants";
+import { COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 
 export const CircleButton = ({
   imgUrl,
@@ -41,4 +41,40 @@ type CircleButtonProps = {
   handlePress: () => void;
   top: number;
   right: number;
+};
+
+export const RectButton = ({
+  fontSize,
+  handlePress,
+  minWidth,
+  ...props
+}: RectButtonProps) => {
+  return (
+    <TouchableOpacity
+      style={{
+        backgroundColor: COLORS.primary,
+        borderRadius: SIZES.extraLarge,
+        minWidth: minWidth,
+        padding: SIZES.small,
+        ...props,
+      }}
+    >
+      <Text
+        style={{
+          fontFamily: FONTS.semiBold,
+          fontSize: fontSize,
+          color: COLORS.white,
+          textAlign: "center",
+        }}
+      >
+        Place a bid
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
+type RectButtonProps = {
+  fontSize: number;
+  handlePress: () => void;
+  minWidth: number;
 };
