@@ -8,10 +8,6 @@ import { RectButton } from "./Button";
 const NFTCard = ({ data }: { data: NFTCardProp }) => {
   const navigation = useNavigation();
 
-  type NavigationProp = {
-    data: NFTCardProp;
-  };
-
   return (
     <View
       style={{
